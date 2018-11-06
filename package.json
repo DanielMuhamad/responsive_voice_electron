@@ -1,17 +1,19 @@
 {
-  "name": "sound",
+  "name": "responsive_voice",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/vue-fontawesome": "^0.1.2",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "gh-pages": "^2.0.1",
     "vue": "^2.5.17",
     "vue-slider-component": "^2.8.0"
   },
@@ -48,5 +50,17 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielMuhamad/responsive-voice-vuejs.git"
+  },
+  "author": "daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielMuhamad/responsive_voice/issues"
+  },
+  "homepage": "https://danielmuhamad.github.io/responsive_voice"
 }
