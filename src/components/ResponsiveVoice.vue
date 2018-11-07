@@ -2,7 +2,7 @@
   <div>
     <b-container fluid>
       <b-row class="justify-content-center">
-        <b-col cols="3">
+        <b-col cols="6">
           <b-card-group>
             <b-card>
               <b>Responsive Voice</b>
@@ -11,33 +11,43 @@
                 <b-form-textarea id="input-text" v-model="textarea" placeholder="Type your text ..." :rows="3" :max-rows="6">
                 </b-form-textarea>
   
-                <!-- select speaker -->
                 <br>
-                <b-form-select id="select-speaker" size="sm" v-model="selected" :options="speakers" v-on:change="changeSpeaker">
-                </b-form-select>
-                <p>hasil: {{ selected }}</p>
+                <b-form-group>
+                  <!-- select speaker -->
+                  <b-form-select id="select-speaker" size="sm" v-model="selected" :options="speakers" v-on:change="changeSpeaker">
+                  </b-form-select>
   
-                <!-- play button -->
-                <br>
-                <br>
-                <b-button @click="playSound()" variant="success" size="sm">
-                  <font-awesome-icon icon="play-circle"></font-awesome-icon> Play
-                </b-button>
+                  <!-- play button -->
+                  <b-button id="btn-play" @click="playSound()" variant="success" size="sm">
+                    <font-awesome-icon icon="play"></font-awesome-icon>
+                  </b-button>
+                </b-form-group>
   
-                <!-- volume slider -->
-                <br>
-                <br>
-                <input type="range" step="0.1" min="0" max="1" ref="input" v-model="data.volume" v-on:input="setVolume($event.target.value)" />
-  
-                <!-- pitch slider -->
-                <br>
-                <br>
-                <input type="range" step="0.1" min="0" max="2" ref="input" v-model="data.pitch" v-on:input="setPitch($event.target.value)" />
-  
-                <!-- volume slider -->
-                <br>
-                <br>
-                <input type="range" step="0.1" min="0" max="2" ref="input" v-model="data.rate" v-on:input="setRate($event.target.value)" />
+                <b-row>
+                  <b-col>
+                    <b-form-group class="volume-slider">
+                      <font-awesome-icon id="fa-volume" icon="volume-down" />
+                      <input id="volume" type="range" step="0.1" min="0" max="1" ref="input" v-model="data.volume" v-on:input="setVolume($event.target.value)" />
+                      <span>Volume</span>
+                    </b-form-group>
+                  </b-col>
+                  
+                  <b-col>
+                    <b-form-group>
+                      <font-awesome-icon id="fa-volume" icon="spinner" />
+                      <input id="pitch" type="range" step="0.1" min="0" max="2" ref="input" v-model="data.pitch" v-on:input="setPitch($event.target.value)" />
+                      <span>Pitch</span>
+                    </b-form-group>
+                  </b-col>
+
+                  <b-col>
+                    <b-form-group>
+                      <font-awesome-icon id="fa-volume" icon="rocket" />
+                      <input id="rate" type="range" step="0.1" min="0" max="2" ref="input" v-model="data.rate" v-on:input="setRate($event.target.value)" />
+                      <span>Rate/Speed</span>
+                    </b-form-group>
+                  </b-col>
+                </b-row>
               </b-card-body>
             </b-card>
           </b-card-group>
@@ -55,7 +65,12 @@ export default {
     return {
       textarea: "",
       selected: "UK English Male",
-      sp: [{ value: "idn-male", text: "Indonesian Male" }],
+      sp: [
+        {
+          value: "idn-male",
+          text: "Indonesian Male"
+        }
+      ],
       speakers: [],
       data: {
         volume: 0.5,
@@ -92,7 +107,10 @@ export default {
       var voicelist = responsiveVoice.getVoices();
       for (var i = 0; i < voicelist.length; i++) {
         var name = voicelist[i].name;
-        var dt = { value: name, text: name };
+        var dt = {
+          value: name,
+          text: name
+        };
         this.speakers.push(dt);
       }
     },
@@ -107,14 +125,31 @@ export default {
 
 <style scoped>
 #volume {
+  margin: 5px;
+}
+
+#fa-volume {
   padding: 5px;
+  width: 28px;
+  height: 28px;
 }
 
 #pitch {
-  padding: 5px;
+  margin: 5px;
 }
 
 #rate {
-  padding: 5px;
+  margin: 5px;
+}
+
+#select-speaker {
+  width: 45%;
+}
+
+#btn-play {
+  /* border-radius: 50%; */
+  border-color: #00c482;
+  margin-left: 20px;
+  background-color: #00c482;
 }
 </style>

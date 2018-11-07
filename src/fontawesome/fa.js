@@ -1,19 +1,13 @@
-import Vue from 'vue'
+import Vue from "vue";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
-    library
-} from '@fortawesome/fontawesome-svg-core'
-import {
-    FontAwesomeIcon
-} from '@fortawesome/vue-fontawesome'
-import {
-    faPlayCircle,
-    faVolumeUp,
-    faVolumeDown,
-    faTachometerAlt,
-    faCircle,
-    faSpinner
-} from '@fortawesome/free-solid-svg-icons'
+  faVolumeDown,
+  faSpinner,
+  faPlay,
+  faRocket
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlayCircle, faVolumeUp, faVolumeDown, faTachometerAlt, faSpinner)
+library.add(faVolumeDown, faPlay, faRocket, faSpinner);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component("font-awesome-icon", FontAwesomeIcon);
