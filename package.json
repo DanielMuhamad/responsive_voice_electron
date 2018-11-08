@@ -55,7 +55,7 @@
   "main": "babel.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DanielMuhamad/responsive-voice-vuejs.git"
+    "url": "git+https://github.com/DanielMuhamad/responsive_voice.git"
   },
   "author": "daniel",
   "license": "ISC",
