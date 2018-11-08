@@ -5,7 +5,7 @@ export default class TextToSpeech {
     this.volume = 1;
     this.pitch = 1;
     this.rate = 1;
-    this.speaker = "UK English Male";
+    this.speaker = "UK English Female";
   }
 
   getVolume() {

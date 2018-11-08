@@ -1,0 +1,37 @@
+#volume {
+    margin: 5px;
+  }
+  
+  #fa-volume {
+    padding: 5px;
+    width: 28px;
+    height: 28px;
+  }
+  
+  #pitch {
+    margin: 5px;
+  }
+  
+  #rate {
+    margin: 5px;
+  }
+  
+  #select-speaker {
+    width: 45%;
+  }
+  
+  #btn-play {
+    /* border-radius: 50%; */
+    border-color: #00c482;
+    margin-left: 20px;
+    background-color: #00c482;
+  }
+  
+  #undo {
+    color: #000000;
+    margin-left: 10px;
+  }
+  
+  #slider-desc {
+    font-size: 14px;
+  }

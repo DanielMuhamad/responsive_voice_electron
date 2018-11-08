@@ -3,7 +3,7 @@
     <b-container fluid>
       <b-row class="justify-content-center">
         <b-col cols="6">
-          <b-card-group>
+          <b-card-group style="width: 640px">
             <b-card>
               <b>Responsive Voice</b>
               <b-card-body>
@@ -18,33 +18,39 @@
                   </b-form-select>
   
                   <!-- play button -->
-                  <b-button id="btn-play" @click="playSound()" variant="success" size="sm">
+                  <b-button id="btn-play" @click="playSound()" variant="success" size="sm" title="Play">
                     <font-awesome-icon icon="play"></font-awesome-icon>
                   </b-button>
+
+                  <!-- reset button -->
+                  <a id="undo" href="" title="Reset">
+                    <font-awesome-icon id="fa-reset" icon="undo" />
+                  </a>
                 </b-form-group>
-  
+
+                <br>
                 <b-row>
                   <b-col>
                     <b-form-group class="volume-slider">
-                      <font-awesome-icon id="fa-volume" icon="volume-down" />
+                      <span title="Volume"><font-awesome-icon id="fa-volume" icon="volume-down" /></span>
                       <input id="volume" type="range" step="0.1" min="0" max="1" ref="input" v-model="data.volume" v-on:input="setVolume($event.target.value)" />
-                      <span>Volume</span>
+                      <span id="slider-desc">Volume: {{ data.volume }}</span>
                     </b-form-group>
                   </b-col>
                   
                   <b-col>
                     <b-form-group>
-                      <font-awesome-icon id="fa-volume" icon="spinner" />
+                      <span title="Pitch"><font-awesome-icon id="fa-volume" icon="spinner" /></span>
                       <input id="pitch" type="range" step="0.1" min="0" max="2" ref="input" v-model="data.pitch" v-on:input="setPitch($event.target.value)" />
-                      <span>Pitch</span>
+                      <span id="slider-desc">Pitch: {{ data.pitch }}</span>
                     </b-form-group>
                   </b-col>
 
                   <b-col>
                     <b-form-group>
-                      <font-awesome-icon id="fa-volume" icon="rocket" />
+                      <span title="Rate/Speed"><font-awesome-icon id="fa-volume" icon="rocket" /></span>
                       <input id="rate" type="range" step="0.1" min="0" max="2" ref="input" v-model="data.rate" v-on:input="setRate($event.target.value)" />
-                      <span>Rate/Speed</span>
+                      <span id="slider-desc">Rate/Speed: {{ data.rate }}</span>
                     </b-form-group>
                   </b-col>
                 </b-row>
@@ -64,7 +70,7 @@ export default {
   data() {
     return {
       textarea: "",
-      selected: "UK English Male",
+      selected: "UK English Female",
       sp: [
         {
           value: "idn-male",
@@ -118,38 +124,15 @@ export default {
     changeSpeaker: function(val) {
       this.tts.setSpeaker(val);
       console.log(val);
+    },
+
+    totalValue: function() {
+      return this.test * 10;
     }
   }
 };
 </script>
 
 <style scoped>
-#volume {
-  margin: 5px;
-}
-
-#fa-volume {
-  padding: 5px;
-  width: 28px;
-  height: 28px;
-}
-
-#pitch {
-  margin: 5px;
-}
-
-#rate {
-  margin: 5px;
-}
-
-#select-speaker {
-  width: 45%;
-}
-
-#btn-play {
-  /* border-radius: 50%; */
-  border-color: #00c482;
-  margin-left: 20px;
-  background-color: #00c482;
-}
+@import url('../assets/css/responsive_voice.css');
 </style>

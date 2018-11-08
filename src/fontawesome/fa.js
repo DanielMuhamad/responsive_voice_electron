@@ -5,9 +5,10 @@ import {
   faVolumeDown,
   faSpinner,
   faPlay,
-  faRocket
+  faRocket,
+  faUndo
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faVolumeDown, faPlay, faRocket, faSpinner);
+library.add(faVolumeDown, faPlay, faRocket, faSpinner, faUndo);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
