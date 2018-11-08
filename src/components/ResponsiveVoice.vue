@@ -2,8 +2,8 @@
   <div>
     <b-container fluid>
       <b-row class="justify-content-center">
-        <b-col cols="6">
-          <b-card-group style="width: 640px">
+        <b-col offset-md>
+          <b-card-group style="width: 700px">
             <b-card>
               <b>Responsive Voice</b>
               <b-card-body>
